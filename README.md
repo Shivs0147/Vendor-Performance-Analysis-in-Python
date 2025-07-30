@@ -26,7 +26,7 @@ This project uses a Python script (inside a Jupyter Notebook) to <strong>automat
 └── inventory.db              <- SQLite database created automatically
 
 ```
-> [`Data File`](https://github.com/Shivs0147/Vendor-Performance-Analysis-in-Python/releases/tag/v1.0.0)
+> [`Data File`](https://github.com/Shivs0147/Vendor-Performance-Analysis-in-Python/releases/download/v1.0.0/data.zip)
 
 # 📊 CSV to SQLite Ingestion Pipeline
 
