@@ -210,7 +210,7 @@ RangeIndex: 450 entries, 0 to 449
 Columns: 6 entries...
 ```
 
-#### 👉 [`You can check EDA python file`](Explaratory%20Data%20Analysis.ipynb)
+#### 👉 If you want to get more information, you can check it through this file: [`EDA`](Explaratory%20Data%20Analysis.ipynb)
 
 ---
 
