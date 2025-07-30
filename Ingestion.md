@@ -177,13 +177,10 @@ if __name__ == '__main__':
 
 ## 👤 Author & Contact
 
-<ul>
-  <li>Name - Shivam Gabani</li>
-    
+  [👤](https://shivs0147.github.io/my-portfolio/)
   [🖂](https://mail.google.com/mail/?view=cm&to=shivamgabani.744@outlook.com)
   [💬](https://www.linkedin.com/in/shivam-gabani-38192a36b/details/contact-info/)
-  <li>📍 Surat, Gujarat.</li>
-</ul>
+  [📍](https://maps.app.goo.gl/JuFWwCt8ZEjvE5cE7)
 
 ## 🙌 Thanks for Scrolling!
 
