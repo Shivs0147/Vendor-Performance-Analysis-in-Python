@@ -1,5 +1,5 @@
 
-# 📊 Exploratory Data Analysis – SQLite Inventory
+# 📊 [Exploratory Data Analysis – SQLite Inventory](Explaratory%20Data%20Analysis.ipynb)
 
 This project uses a Jupyter Notebook to **analyze an SQLite database (`inventory.db`)** containing inventory, purchase, sales, and vendor data. The goal is to derive insights for decision-making such as **vendor profitability** and **product pricing optimization**—ideal for downstream use in Power BI, Tableau, or dashboards.
 
@@ -86,6 +86,87 @@ You’ll find SQL joins and logical groupings, such as:
 
 ---
 
+### 🔹 Step 5: Logging Setup
+
+This section sets up a logger named `eda_logger` to write logs into a file `logs/eda_analysis.log`.
+
+```python
+import logging
+
+# --- Ensure logs directory exists ---
+os.makedirs('logs', exist_ok=True)
+
+# --- LOGGER SETUP START ---
+logger = logging.getLogger("get_vendor_summary")
+logger.setLevel(logging.DEBUG)
+
+log_file = os.path.join(os.getcwd(), 'logs', 'get_vendor_summary.log')
+file_handler = logging.FileHandler(log_file, mode="a")
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.DEBUG)  # Explicitly set handler level
+
+# Add console handler for debugging
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(formatter)
+console_handler.setLevel(logging.DEBUG)
+
+logger.handlers.clear()  # Clear existing handlers to avoid duplication
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+logger.debug("Testing logger setup")  # Test log
+```
+
+
+---
+
+## 📝 Example Log Output
+
+```
+2025-07-22 22:20:41,552 - DEBUG - Testing logger setup
+2025-07-22 22:20:41,557 - INFO - Creating Vendor Summary Table...
+2025-07-22 22:20:51,357 - INFO - 
+   VendorNumber                               VendorName  Brand                   Description  PurchasePrice  ActualPrice Volume  TotalPurchaseQty  TotalPurchaseDollors  ExciseTax  SalesDollars  SalesPrice  SalesQuantity  TotalFreight
+0             2  IRA GOLDMAN AND WILLIAMS, LLP            90085  Ch Lilian 09 Ladouys St Este          23.86        36.99    750                 7                167.02       0.22           213       36.99              2         27.08
+1           105              ALTAMAR BRANDS LLC            8412     Tequila Ocho Plata Fresno          35.71        49.99    750               140               4999.40      11.84          7935      699.86             15         62.39
+2           287              APPOLO VINEYARDS LLC         24921            Appolo Vyds Seyval          10.40        15.49    750                36                374.40       0.33          1191       46.47              3         12.28
+3           287              APPOLO VINEYARDS LLC         24922        Appolo Vyds China Girl          10.47        15.49    750                36                376.92       0.55          2655       77.45              5         12.28
+4           388              ATLANTIC IMPORTING COMPANY    2034     Glendalough Double Barrel          21.32        32.99    750               828              17652.96     117.56         73937     3652.74            149        211.74
+2025-07-22 22:20:51,357 - INFO - Cleaning Data...
+2025-07-22 22:20:51,389 - INFO - 
+   VendorNumber                     VendorName  Brand                   Description  PurchasePrice  ActualPrice  Volume  TotalPurchaseQty  TotalPurchaseDollors  ExciseTax  SalesDollars  SalesPrice  SalesQuantity  TotalFreight  GrossProfit  ProfitMargin  StockTurnOver  SalesToPurchaseRatio
+0             2  IRA GOLDMAN AND WILLIAMS, LLP  90085  Ch Lilian 09 Ladouys St Este          23.86        36.99   750.0                 7                167.02       0.22           213       36.99              2         27.08        45.98     21.586854       0.285714              1.275296
+1           105             ALTAMAR BRANDS LLC   8412     Tequila Ocho Plata Fresno          35.71        49.99   750.0               140               4999.40      11.84          7935      699.86             15         62.39      2935.60     36.995589       0.107143              1.587190
+2           287           APPOLO VINEYARDS LLC  24921            Appolo Vyds Seyval          10.40        15.49   750.0                36                374.40       0.33          1191       46.47              3         12.28       816.60     68.564232       0.083333              3.181090
+3           287           APPOLO VINEYARDS LLC  24922        Appolo Vyds China Girl          10.47        15.49   750.0                36                376.92       0.55          2655       77.45              5         12.28      2278.08     85.803390       0.138889              7.043935
+4           388     ATLANTIC IMPORTING COMPANY   2034     Glendalough Double Barrel          21.32        32.99   750.0               828              17652.96     117.56         73937     3652.74            149        211.74     56284.04     76.124322       0.179952              4.188363
+2025-07-22 22:20:51,390 - INFO - Inserting Data...
+2025-07-22 22:20:51,621 - INFO - Completed
+2025-07-29 17:42:05,207 - DEBUG - Testing logger setup
+2025-07-29 17:42:05,212 - INFO - Creating Vendor Summary Table...
+2025-07-29 17:42:14,454 - INFO - 
+   VendorNumber                               VendorName  Brand                   Description  PurchasePrice  ActualPrice Volume  TotalPurchaseQty  TotalPurchaseDollors  ExciseTax  SalesDollars  SalesPrice  SalesQuantity  TotalFreight
+0             2  IRA GOLDMAN AND WILLIAMS, LLP            90085  Ch Lilian 09 Ladouys St Este          23.86        36.99    750                 7                167.02       0.22           213       36.99              2         27.08
+1           105              ALTAMAR BRANDS LLC            8412     Tequila Ocho Plata Fresno          35.71        49.99    750               140               4999.40      11.84          7935      699.86             15         62.39
+2           287              APPOLO VINEYARDS LLC         24921            Appolo Vyds Seyval          10.40        15.49    750                36                374.40       0.33          1191       46.47              3         12.28
+3           287              APPOLO VINEYARDS LLC         24922        Appolo Vyds China Girl          10.47        15.49    750                36                376.92       0.55          2655       77.45              5         12.28
+4           388              ATLANTIC IMPORTING COMPANY    2034     Glendalough Double Barrel          21.32        32.99    750               828              17652.96     117.56         73937     3652.74            149        211.74
+2025-07-29 17:42:14,454 - INFO - Cleaning Data...
+2025-07-29 17:42:14,467 - INFO - 
+   VendorNumber                     VendorName  Brand                   Description  PurchasePrice  ActualPrice  Volume  TotalPurchaseQty  TotalPurchaseDollors  ExciseTax  SalesDollars  SalesPrice  SalesQuantity  TotalFreight  GrossProfit  ProfitMargin  StockTurnOver  SalesToPurchaseRatio
+0             2  IRA GOLDMAN AND WILLIAMS, LLP  90085  Ch Lilian 09 Ladouys St Este          23.86        36.99   750.0                 7                167.02       0.22           213       36.99              2         27.08        45.98     21.586854       0.285714              1.275296
+1           105             ALTAMAR BRANDS LLC   8412     Tequila Ocho Plata Fresno          35.71        49.99   750.0               140               4999.40      11.84          7935      699.86             15         62.39      2935.60     36.995589       0.107143              1.587190
+2           287           APPOLO VINEYARDS LLC  24921            Appolo Vyds Seyval          10.40        15.49   750.0                36                374.40       0.33          1191       46.47              3         12.28       816.60     68.564232       0.083333              3.181090
+3           287           APPOLO VINEYARDS LLC  24922        Appolo Vyds China Girl          10.47        15.49   750.0                36                376.92       0.55          2655       77.45              5         12.28      2278.08     85.803390       0.138889              7.043935
+4           388     ATLANTIC IMPORTING COMPANY   2034     Glendalough Double Barrel          21.32        32.99   750.0               828              17652.96     117.56         73937     3652.74            149        211.74     56284.04     76.124322       0.179952              4.188363
+2025-07-29 17:42:14,467 - INFO - Inserting Data...
+2025-07-29 17:42:14,738 - INFO - Completed
+
+```
+
+---
+
 ### 📈 Potential Aggregated Views (for BI Use)
 
 The notebook suggests or creates views such as:
@@ -129,7 +210,7 @@ RangeIndex: 450 entries, 0 to 449
 Columns: 6 entries...
 ```
 
-#### 👉 [`You can check EDA file`](Explaratory%20Data%20Analysis.ipynb)
+#### 👉 [`You can check EDA python file`](Explaratory%20Data%20Analysis.ipynb)
 
 ---
 
