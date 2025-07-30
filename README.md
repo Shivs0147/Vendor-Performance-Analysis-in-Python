@@ -26,6 +26,8 @@ This project uses a Python script (inside a Jupyter Notebook) to <strong>automat
 └── inventory.db              <- SQLite database created automatically
 
 ```
+> [`Data File`](https://github.com/Shivs0147/Vendor-Performance-Analysis-in-Python/releases/tag/v1.0.0)
+
 # 📊 CSV to SQLite Ingestion Pipeline
 
 Automates the ingestion of multiple `.csv` files into a local SQLite database using Python. Logs activity, tracks execution time, and creates one table per CSV inside `inventory.db`.
