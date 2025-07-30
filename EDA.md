@@ -1,5 +1,5 @@
 
-# 📊 [Exploratory Data Analysis – SQLite Inventory]
+# 📊 [Exploratory Data Analysis – SQLite Inventory](Explaratory%20Data%20Analysis.ipynb)
 
 This project uses a Jupyter Notebook to **analyze an SQLite database (`inventory.db`)** containing inventory, purchase, sales, and vendor data. The goal is to derive insights for decision-making such as **vendor profitability** and **product pricing optimization**—ideal for downstream use in Power BI, Tableau, or dashboards.
 
@@ -210,7 +210,7 @@ RangeIndex: 450 entries, 0 to 449
 Columns: 6 entries...
 ```
 
-#### 👉 [`You can check EDA python file`]
+#### 👉 [`You can check EDA python file`](Explaratory%20Data%20Analysis.ipynb)
 
 ---
 
