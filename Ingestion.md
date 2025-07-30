@@ -179,8 +179,8 @@ if __name__ == '__main__':
 
 <ul>
   <li>Name - Shivam Gabani</li>
-  <li>📧 Email: shivamgabani.744@outlook.com</li>
-  <li>💼 LinkedIn: https://www.linkedin.com/in/shivam-gabani-38192a36b/</li>
+    
+  [🖂](shivamgabani.744@outlook.com)
   <li>📍 Surat, Gujarat.</li>
 </ul>
 
