@@ -180,7 +180,8 @@ if __name__ == '__main__':
 <ul>
   <li>Name - Shivam Gabani</li>
     
-  [🖂](shivamgabani.744@outlook.com)
+  [🖂](https://mail.google.com/mail/?view=cm&to=shivamgabani.744@outlook.com)
+  [💬](https://www.linkedin.com/in/shivam-gabani-38192a36b/details/contact-info/)
   <li>📍 Surat, Gujarat.</li>
 </ul>
 
