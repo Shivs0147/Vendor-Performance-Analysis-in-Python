@@ -395,7 +395,7 @@ plt.show()
 
 **Summary:**
 
-> This code generates horizontal count plots for the two categorical columns "VendorName" and "Description", displaying the top 10 most frequent categories in each. The dark background and sky-blue bars make the plots visually appealing and easy to interpret, helping identify the most common vendors and product descriptions in the dataset.
+> → This code generates horizontal count plots for the two categorical columns "VendorName" and "Description", displaying the top 10 most frequent categories in each. The dark background and sky-blue bars make the plots visually appealing and easy to interpret, helping identify the most common vendors and product descriptions in the dataset.
 
 #### CORRELATION HEATMAP OF NUMERICAL FEATURES:
 
@@ -425,4 +425,4 @@ plt.title('Correlation Heatmap')
 
 **Summary:**
 
-> This block generates a correlation heatmap to visualize how strongly the numerical columns in the `Vendor_Summary` dataset are related to each other. The `coolwarm` color scale helps quickly identify the nature of these relationships: positive correlations appear in red, negative correlations in blue, and weak or no correlation in near-white shades. This visualization is useful for detecting multicollinearity and uncovering meaningful patterns among key metrics such as `GrossProfit`, `SalesDollars`, `PurchasePrice`, and others.
+> → This block generates a correlation heatmap to visualize how strongly the numerical columns in the `Vendor_Summary` dataset are related to each other. The `coolwarm` color scale helps quickly identify the nature of these relationships: positive correlations appear in red, negative correlations in blue, and weak or no correlation in near-white shades. This visualization is useful for detecting multicollinearity and uncovering meaningful patterns among key metrics such as `GrossProfit`, `SalesDollars`, `PurchasePrice`, and others.
