@@ -1,6 +1,6 @@
 # Vendor Performance Analysis in Python
 
-## 📊 CSV to SQLite [Ingestion](Ingestion.md) Pipeline
+## 📊 [CSV to SQLite Ingestion Pipeline](Ingestion.md) 
 
 <p align='justify'>
 This project uses a Python script (inside a Jupyter Notebook) to <strong>automate the loading of multiple CSV files into a SQLite database</strong>. It's useful for small ETL jobs or prepping data for analysis tools like Power BI or Tableau.
@@ -54,11 +54,20 @@ Automates the ingestion of multiple `.csv` files into a local SQLite database us
 2025-07-30 16:58:50,541 - INFO - Total Time Taken: 1.82 minutes
 ```
 
-## 📌 Project Overview: Exploratory Data Analysis on SQLite Inventory DB
+## 📌 [Project Overview: Exploratory Data Analysis on SQLite Inventory DB](EDA.md)
 
 This project performs **exploratory data analysis (EDA)** on a structured SQLite database (`inventory.db`) containing inventory, vendor, purchase, and sales data. Using a **Jupyter Notebook**, the goal is to uncover actionable insights like **vendor profitability**, **pricing trends**, and **inventory movement**—preparing the data for downstream BI tools like **Power BI**, **Tableau**, or custom dashboards.
 
 ---
+
+## 📁 Folder Structure
+
+```plaintext
+.
+├── Exploratory Data Analysis.ipynb  <- This notebook (EDA logic & insights)
+├── inventory.db                     <- SQLite database to be analyzed
+└── data/                            <- (Optional) Folder if you export analysis-ready CSVs
+```
 
 ## 🔍 Key Highlights
 
@@ -132,3 +141,62 @@ This project performs **exploratory data analysis (EDA)** on a structured SQLite
 | Jupyter      | Interactive notebook environment  |
 
 > 📁 Logs are stored in: `logs/eda_analysis.log`
+
+## 📊 [Detailed Analysis Overview of Vender Performance](VPA.md)
+
+This project provides a comprehensive vendor performance analysis using data from the `Vendor_Sales_Summary` table. The notebook applies structured exploratory data analysis (EDA) to uncover patterns, detect anomalies, and support data-driven vendor evaluation.
+
+---
+
+```plaintext
+Vendor_Performance_Analysis/
+├── data/                                   # Raw input files
+│   └── Vendor_Data.csv
+│
+├── notebooks/                              # Jupyter Notebooks for analysis
+│   └── Vendor_Performance_Analysis.ipynb   # Main analysis and EDA notebook
+│
+├── output/                                 # Saved charts, visualizations, or reports
+│   ├── Snapshot_of_Dist_Plots_Num_Cols.png
+│   ├── Snapshot_of_Outlier_Detection.png
+│   ├── Snapshot_of_Correlation_heatmap.png
+│   └── most_frequent_vendors_products.png
+│
+├── docs/                                   # Documentation (optional)
+│   └── README.md                           # Project overview and summary
+
+
+```
+
+### 🔍 Key Components of the Analysis
+
+#### ✅ Data Profiling & Summary Statistics
+Begins with an overview of all numerical fields (e.g., `GrossProfit`, `SalesDollars`, `PurchasePrice`, etc.) using `describe()` and `.info()` to understand the shape, scale, and quality of the data.
+
+#### 📈 Distribution Analysis
+Histograms and KDE plots help visualize how key metrics are distributed — identifying skewness, peaks, and the presence of outliers.
+
+#### 🧹 Data Cleaning / Filtering
+To ensure valid comparisons, only records with positive `Sales Quantity`, `Gross Profit`, and `Profit Margin` are retained. This removes irrelevant or inconsistent rows (e.g., zero or negative sales/profit).
+
+#### 📦 Outlier Detection via Boxplots
+Boxplots (before and after filtering) highlight extreme values and help distinguish between data noise and meaningful exceptions (e.g., exceptionally high freight costs or profits).
+
+#### 🏷️ Top Vendors & Products
+Count plots for the most frequent `VendorName` and `Description` values offer insight into which vendors and SKUs dominate the dataset.
+
+#### 🔁 Correlation Heatmap
+A colored matrix shows how numeric features relate to each other. This is useful to:
+
+- Detect multicollinearity (e.g., `SalesDollars` ↔ `SalesQuantity`)
+- Spot unexpected relationships or feature dependencies
+
+---
+
+### 🎯 Why It Matters
+
+This analysis is ideal for **procurement**, **inventory**, and **finance** teams aiming to:
+
+- Evaluate vendor profitability and efficiency  
+- Identify underperforming or high-impact suppliers  
+- Make informed decisions based on clear data visuals and statistical indicators
