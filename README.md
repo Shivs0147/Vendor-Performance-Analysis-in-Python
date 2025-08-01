@@ -144,7 +144,7 @@ This project performs **exploratory data analysis (EDA)** on a structured SQLite
 
 ## 📊 [Detailed Analysis Overview of Vender Performance](VPA.md)
 
-This project provides a comprehensive vendor performance analysis using data from the `Vendor_Sales_Summary` table. The notebook applies structured exploratory data analysis (EDA) to uncover patterns, detect anomalies, and support data-driven vendor evaluation.
+The project takes an in-depth look at vendor performance based on the data contained `Vendor_Sales_Summary` table. The journal uses systematic exploratory data analysis (EDA) to identify trends, identify inconsistencies and aid evidence based vendor comparison.
 
 ---
 
