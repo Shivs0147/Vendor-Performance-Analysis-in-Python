@@ -7,13 +7,23 @@ This project uses a Jupyter Notebook (`Vendor_Performance_Analysis.ipynb`) to pe
 ## 📁 Folder Structure
 
 ```plaintext
-.
-├── Ingestion_db.ipynb                <- Jupyter notebook with all ingestion logic
-├── Vendor_Performance_Analysis.ipynb <- Jupyter notebook with full EDA & KPI logic
-├── data/                             <- Input CSV files used for the analysis
+Vendor_Performance_Analysis/
+├── data/                                   # Raw input files
 │   └── Vendor_Data.csv
-├── output/                           <- Optional: Exported reports or visualizations
-└── README.md                         <- Project documentation (this file)
+│
+├── notebooks/                              # Jupyter Notebooks for analysis
+│   └── Vendor_Performance_Analysis.ipynb   # Main analysis and EDA notebook
+│
+├── output/                                 # Saved charts, visualizations, or reports
+│   ├── Snapshot_of_Dist_Plots_Num_Cols.png
+│   ├── Snapshot_of_Outlier_Detection.png
+│   ├── Snapshot_of_Correlation_heatmap.png
+│   └── most_frequent_vendors_products.png
+│
+├── docs/                                   # Documentation (optional)
+│   └── README.md                           # Project overview and summary
+
+
 ```
 
 ## 🧠 How It Works (Step-by-Step Breakdown)
